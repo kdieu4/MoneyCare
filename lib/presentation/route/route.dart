@@ -1,5 +1,6 @@
 
 enum MyRoute {
   main,
-  feature
+  feature,
+  login
 }
