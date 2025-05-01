@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:money_care/presentation/component/home_page.dart';
 
 import 'core/firebase_options.dart';
+import 'core/service_locator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // ✅ Must be first!
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setup();
   runApp(const MyApp());
 }
 

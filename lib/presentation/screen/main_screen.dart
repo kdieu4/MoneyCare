@@ -32,7 +32,12 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             label: "User",
-            icon: IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+            icon: IconButton(
+              onPressed: () {
+                navigate(context, MyRoute.login);
+              },
+              icon: Icon(Icons.person),
+            ),
           ),
         ],
       ),
