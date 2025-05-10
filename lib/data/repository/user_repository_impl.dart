@@ -1,4 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:money_care/core/log_d.dart';
@@ -6,6 +8,7 @@ import 'package:money_care/domain/entity/my_user_info.dart';
 import 'package:money_care/domain/repository/user_repository.dart';
 
 class UserRepositoryImpl extends UserRepository {
+
   @override
   void getCurrUser(ValueChanged<User?> onUserChange) {
     FirebaseAuth.instance.authStateChanges().listen((user) {
@@ -25,6 +28,11 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<UserCredential> signInWithGoogle() async {
+    if (kIsWeb) {
+      GoogleAuthProvider googleProvider = GoogleAuthProvider();
+      return await FirebaseAuth.instance.signInWithPopup(googleProvider);
+    }
+
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
     final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -33,7 +41,6 @@ class UserRepositoryImpl extends UserRepository {
       accessToken: googleAuth?.accessToken,
       idToken: googleAuth?.idToken,
     );
-
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }

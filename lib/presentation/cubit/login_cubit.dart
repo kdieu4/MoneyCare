@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:money_care/core/log_d.dart';
 import 'package:money_care/core/service_locator.dart';
@@ -14,6 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> getUser() async {
+    logD("kIsWeb $kIsWeb");
     getUserUseCase((user) {
       logD(user);
       if (user != null) {
