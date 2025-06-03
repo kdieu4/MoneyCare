@@ -2,5 +2,6 @@
 enum MyRoute {
   main,
   feature,
-  login
+  login,
+  onePieceTracking,
 }

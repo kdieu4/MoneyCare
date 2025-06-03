@@ -20,24 +20,21 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("Home Page")),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (id) {
+          if (id == 0) {
+            navigate(context, MyRoute.feature);
+          } else if (id == 1) {
+            navigate(context, MyRoute.login);
+          }
+        },
         items: [
           BottomNavigationBarItem(
             label: "All Feature",
-            icon: IconButton(
-              onPressed: () {
-                navigate(context, MyRoute.feature);
-              },
-              icon: Icon(Icons.category),
-            ),
+            icon: const Icon(Icons.category),
           ),
           BottomNavigationBarItem(
             label: "User",
-            icon: IconButton(
-              onPressed: () {
-                navigate(context, MyRoute.login);
-              },
-              icon: Icon(Icons.person),
-            ),
+            icon: const Icon(Icons.person),
           ),
         ],
       ),
