@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:money_care/presentation/route/route.dart';
 import 'package:money_care/presentation/screen/feature_screen.dart';
 import 'package:money_care/presentation/screen/login_screen.dart';
+import 'package:money_care/presentation/screen/one_piece_tracking_screen.dart';
 
 import '../screen/main_screen.dart';
 
@@ -21,6 +22,11 @@ void navigate(BuildContext context, MyRoute route) {
       case MyRoute.login:
         state.push(
           MaterialPageRoute(builder: (context) => const LoginScreen()),
+        );
+
+      case MyRoute.onePieceTracking:
+        state.push(
+          MaterialPageRoute(builder: (context) => const OnePieceTrackingScreen()),
         );
     }
   });
