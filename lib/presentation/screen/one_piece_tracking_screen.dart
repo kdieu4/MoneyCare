@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:money_care/core/log_d.dart';
 import 'package:money_care/presentation/cubit/login_cubit.dart';
 import 'package:money_care/presentation/cubit/one_piece_cubit.dart';
 
@@ -45,37 +44,31 @@ class OnePieceTrackingPage extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(title: Text("One piece Book tracking")),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Center(
-                  child: GridView.extent(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    maxCrossAxisExtent: 150,
-                    padding: EdgeInsets.all(10),
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    children:
-                        onePieceCubit.state.bookSeries.read.mapIndexed((
-                          id,
-                          it,
-                        ) {
-                          logD("id $id it $it");
-                          return GestureDetector(
-                            onTap: () {
-                              context.read<OnePieceCubit>().edit(id, !it);
-                            },
-                            child: Container(
-                              color: it ? Colors.amber : Colors.grey,
-                              child: Center(child: Text("Book $id")),
-                            ),
-                          );
-                        }).toList(),
-                  ),
+          body: Column(
+            children: [
+              Expanded(
+                child: GridView.extent(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  maxCrossAxisExtent: 150,
+                  padding: EdgeInsets.all(10),
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children:
+                      onePieceCubit.state.bookSeries.read.mapIndexed((id, it) {
+                        return GestureDetector(
+                          onTap: () {
+                            context.read<OnePieceCubit>().edit(id, !it);
+                          },
+                          child: Container(
+                            color: it ? Colors.amber : Colors.grey,
+                            child: Center(child: Text("Book $id")),
+                          ),
+                        );
+                      }).toList(),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
