@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "733301548359",
+    "firebase_url": "https://moneycare-606f9-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "moneycare-606f9",
     "storage_bucket": "moneycare-606f9.firebasestorage.app"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "733301548359-hm4h42d14jpg0m931sbudrukum0o9v9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.htd.org.money_care",
+            "certificate_hash": "0151d5361de64e70b96917aa27dd19057f62e8e4"
+          }
+        },
         {
           "client_id": "733301548359-93jkrf113dp2n3iu2qi10l7iss5lub2c.apps.googleusercontent.com",
           "client_type": 3
