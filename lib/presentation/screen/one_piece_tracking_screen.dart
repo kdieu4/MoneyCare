@@ -1,3 +1,4 @@
+// import 'package:collection/collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,13 +30,13 @@ class OnePieceTrackingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LoginCubit loginCubit = context.read<LoginCubit>();
+    // LoginCubit loginCubit = context.read<LoginCubit>();
     OnePieceCubit onePieceCubit = context.read<OnePieceCubit>();
-    var state = loginCubit.state;
-    var isAdmin = false;
-    if (state is LogIn) {
-      isAdmin = state.user.email == "hoangthien66771508@gmail.com";
-    }
+    // var state = loginCubit.state;
+    // var isAdmin = false;
+    // if (state is LogIn) {
+    //   isAdmin = state.user.email == "hoangthien66771508@gmail.com";
+    // }
     // if (state is NotLogIn || !isAdmin) {
     //   navigate(context, MyRoute.login);
     // }
