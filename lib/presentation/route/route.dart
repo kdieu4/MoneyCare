@@ -4,4 +4,5 @@ enum MyRoute {
   feature,
   login,
   onePieceTracking,
+  addMoney,
 }

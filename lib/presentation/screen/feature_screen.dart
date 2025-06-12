@@ -92,7 +92,9 @@ class _FeatureScreenState extends State<FeatureScreen> {
             child: DropDownMenuData(
               label: MenuItemData("Money", Icons.money, (ctx) {}),
               items: [
-                MenuItemData("Add", Icons.add, (ctx) {}),
+                MenuItemData("Add", Icons.add, (ctx) {
+                  navigate(ctx, MyRoute.addMoney);
+                }),
                 MenuItemData("View", Icons.remove_red_eye_sharp, (ctx) {}),
               ],
             ),

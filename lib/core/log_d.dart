@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 
-void logD(message) {
+void logD(tag, message) {
   if (kDebugMode) {
-    print("+++++++++++++");
+    print("$tag +++++++++++++");
     print(message);
   }
 }
