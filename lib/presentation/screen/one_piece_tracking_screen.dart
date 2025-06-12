@@ -2,6 +2,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:money_care/core/service_locator.dart';
 import 'package:money_care/presentation/cubit/login_cubit.dart';
 import 'package:money_care/presentation/cubit/one_piece_cubit.dart';
 
@@ -17,8 +18,8 @@ class _OnePieceTrackingScreen extends State<OnePieceTrackingScreen> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => LoginCubit()),
-        BlocProvider(create: (context) => OnePieceCubit()),
+        BlocProvider(create: (context) => getIt.get<LoginCubit>()),
+        BlocProvider(create: (context) => getIt.get<OnePieceCubit>()),
       ],
       child: OnePieceTrackingPage(),
     );

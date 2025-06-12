@@ -1,11 +1,14 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
 import 'package:money_care/domain/entity/book_series.dart';
 import 'package:money_care/domain/repository/book_series_repository.dart';
 
 class BookSeriesRepositoryImpl extends BookSeriesRepository {
   late DatabaseReference ref;
+  final StreamController<BookSeries> bookSeriesController =
+      StreamController<BookSeries>.broadcast();
 
   BookSeriesRepositoryImpl() {
     final firebaseApp = Firebase.app();
@@ -18,7 +21,7 @@ class BookSeriesRepositoryImpl extends BookSeriesRepository {
   }
 
   @override
-  void getSeries(ValueChanged<BookSeries> changes) {
+  Stream<BookSeries> getSeries() {
     ref.onValue.listen((event) {
       final data = event.snapshot.value;
       final List<bool> read = List.filled(150, false, growable: true);
@@ -33,8 +36,9 @@ class BookSeriesRepositoryImpl extends BookSeriesRepository {
           .forEach((it) {
             read[it] = true;
           });
-      changes(BookSeries(name: "One Piece", read: read));
+      bookSeriesController.sink.add(BookSeries(name: "One Piece", read: read));
     });
+    return bookSeriesController.stream;
   }
 
   @override

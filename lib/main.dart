@@ -10,7 +10,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setup();
+  await setup();
   runApp(const MyApp());
 }
 

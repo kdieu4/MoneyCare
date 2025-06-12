@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "733301548359-hm4h42d14jpg0m931sbudrukum0o9v9q.apps.googleusercontent.com",
+          "client_id": "733301548359-6v1qtmfqp9uoavmmm4sj36hlhoeq76pb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.htd.org.money_care",
-            "certificate_hash": "0151d5361de64e70b96917aa27dd19057f62e8e4"
+            "certificate_hash": "51de2d659552c2a1884c99c66e0c1c0e8e99fb72"
           }
         },
         {
